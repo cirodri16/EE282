@@ -27,6 +27,9 @@ rmdir protocols
 cd ../
 mkdir experiments
 ```
+### Question 1 Comments:
+This was very well done, the only issue is that anytime you specify "/" before anything while traversing or modifying directories, you are stating to start in the root directory, which is typically a big nono and can lead to massive system failure if you are the owner of the linux computer. typically you want to do ~ or use / when you are indeed accessing the directory (this is using the full path). It is generally recommended to not use full paths but instead relational paths from within your current working directory. i.e. if you are in /homedirectory and you want to create /homedirectory/class you would simply do mkdir class while working in the /homedirectory. This also makes code much more reusable as you do not have to constantly update static paths in your scripts when reusing them, and instead can be used in any working directory as long as the directory where the copy of your script is located, contains the required files for it to run on.
+
 
 ## Exercise 2
 Ask a question that requires a student to understand the difference between accessing a column in a matrix with numeric indices versus accessing a column in a data frame with numeric indices. Your question should require an answer comparing the following: mymatrix[,1] vs. mydf[,1] vs. mydf[1] vs. mydf[[1]].
@@ -115,4 +118,5 @@ chmod o+r microbes
 #OR instead of entering the directory "bacteria" you can grant access directly by listing the whole path to the file:
 chmod o+r /homedirectory/bacteria/microbes
 ```
-
+###Question 3 Comments:
+This is done very well and I like how you discuss how it is also necessary for all parent directories to have user read access in order for the user to read the file. It is also important that the directories also have execute access. Also for this specific case you can do away with the o and just do chmod +rx microbes in order to do the same thing but in one step. This gives a blanket access of read and write. The additional option allows you to specify if you want to give group access but not all user access. Sometimes this is also necessary, depending on your realworld application. Great job!
